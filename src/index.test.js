@@ -1,23 +1,16 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { configure, shallow } from 'enzyme';
 import { expect } from 'chai';
-import jsdom from 'jsdom';
-import fs from 'fs';
+import App from './components/App';
+import Adapter from 'enzyme-adapter-react-16';
 
-const index = fs.readFileSync('./src/index.html', "utf-8");
-const { JSDOM } = jsdom;
-const { window } = new JSDOM(index);
-const { document } = (new JSDOM(`...`)).window;
+configure({ adapter: new Adapter() });
 
-describe('Our first test', () => {
-  it('should pass', () => {
-    expect(true).to.equal(true);
-  });
-});
-
-describe('index.html', () => {
-  it('Should have h1 that says Hello', (done) => {
-    const h1 = window.document.getElementsByTagName('h1')[0];
-    expect(h1.innerHTML).to.equal("Hello");
-    done();
-    window.close();
+describe('App component testing', function() {
+  it('renders welcome message', function() {
+    const wrapper = shallow(<App />);
+    const welcome = <h1>Hello</h1>;
+    expect(wrapper.contains(welcome)).to.equal(true);
   });
 });
