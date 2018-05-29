@@ -1,18 +1,14 @@
-//const path = require('path');
-//const HtmlWebpackPlugin = require('html-webpack-plugin');
-import path from 'path';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-//module.exports = {
-export default {
+module.exports = {
   target: 'web',
-  devtool:  'inline-source-map',
   entry: [ 
     path.resolve(__dirname, 'src/index') 
   ],
   output: {
     path: path.join(__dirname, '/dist'),
-    filename: 'bundle.js'
+    filename: 'bundle.[name].js'
   },
   module: {
     rules: [
@@ -25,3 +21,5 @@ export default {
     new HtmlWebpackPlugin({ template: './src/index.html' })
   ]
 }
+
+//I can use es6 style here if I use an express server and webpack middleware.
