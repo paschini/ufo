@@ -1,15 +1,16 @@
+const webpack = require('webpack');
 const merge = require('webpack-merge');
 const common = require('./webpack.common');
 //insert minification plugin here
 
 module.exports = merge (common, {
   devtool: 'source-map',
-  /* plugins: [
+  plugins: [
     new UglifyJSPlugin({
           sourceMap: true
     }),
     new webpack.DefinePlugin({       
       'process.env.NODE_ENV': JSON.stringify('production')
     })
-   ] */
+   ] 
 });
