@@ -1,5 +1,13 @@
-# U.F.O.
+# kitty &#128576;
 
-A "choose your own adventure" style story.
+My own JS dev starter kit. The goal is to enable common features like integrated dev-server with hot-reloading, linting, testing and bundling for all files. 
 
-Made with &#10084; and React.
+Package Management with **npm**
+Automation done **npm scripts**
+Bundling done with **webpack**
+Transpilation done with **Babel**
+Minification with **UglifyJS**
+Linting with **ESLint**
+Tests with **Mocha** and **Chai**
+
+Made with &#10084;
