@@ -19,25 +19,27 @@ module.exports = merge (common, {
       new OptimizeCSSAssetsPlugin({})
     ],
   },
+
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          "css-loader"
+        ]
+      }
+    ]
+  },
+
   plugins: [
-    new webpack.DefinePlugin({       
+    new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('production')
     }),
     new CleanWebpackPlugin(['dist']),
     new MiniCssExtractPlugin({
           filename: "[name].[contenthash].css",
           chunkFilename: "[id].[contenthash].css"
-    })    
-   ],
-   module: {
-     rules: [
-       {
-         test: /\.css$/,
-         use: [
-           MiniCssExtractPlugin.loader,
-           "css-loader"
-         ]
-       }
-     ]
-   } 
+    })
+   ]
 });
