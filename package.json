@@ -4,9 +4,9 @@
   "description": "a \"choose your own adventure\" style story.",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --config webpack.dev.js --color --open --hot --watch",
+    "start": "webpack-dev-server --config webpack.config.dev.js --color --open --hot",
     "prebuild": "npm test",
-    "build": "webpack --config webpack.prod.js",
+    "build": "webpack --config webpack.config.prod.js",
     "test": "mocha --reporter progress buildScripts/testSetup.js \"src/**/*.test.js\"",
     "test:watch": "npm run test -- --watch"
   },
@@ -40,6 +40,7 @@
     "eslint": "^4.19.1",
     "eslint-loader": "^2.0.0",
     "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-react": "^7.8.2",
     "fs": "0.0.1-security",
     "html-webpack-plugin": "^3.2.0",
     "jsdom": "^11.11.0",
